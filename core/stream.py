@@ -43,6 +43,7 @@ app = Client(
     api_hash=config.API_HASH,
     session_string=config.SESSION,
     in_memory=True,
+    sleep_threshold=60,
 )
 ytdl = YoutubeDL(ydl_opts)
 pytgcalls = PyTgCalls(app)

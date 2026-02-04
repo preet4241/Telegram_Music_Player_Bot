@@ -601,5 +601,10 @@ async def closed_vc(_, update: Update):
         clear_queue(chat_id)
 
 
-client.start()
-pytgcalls.run()
+    client.start()
+    try:
+        pytgcalls.run()
+    except Exception as e:
+        print(f"ERROR: {e}")
+        import time
+        time.sleep(10)
