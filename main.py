@@ -601,9 +601,13 @@ async def closed_vc(_, update: Update):
         clear_queue(chat_id)
 
 
+if __name__ == "__main__":
     client.start()
+    print("Bot started!")
     try:
         pytgcalls.run()
+        from pyrogram import idle
+        idle()
     except Exception as e:
         print(f"ERROR: {e}")
         import time
