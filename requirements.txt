@@ -22,3 +22,15 @@ tgcrypto
 youtube-search-python
 yt-dlp
 spotipy
+aiofiles
+aiohttp
+httpx
+pillow
+py-tgcalls
+pyrogram
+python-dotenv
+pytube
+spotipy
+tgcrypto
+youtube-search-python
+yt-dlp
